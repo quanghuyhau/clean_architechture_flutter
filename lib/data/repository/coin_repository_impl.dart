@@ -9,7 +9,7 @@ class CoinRepositoryImpl implements CoinRepository {
 
   @override
   Future<List<Coin>> getTopCoins() async {
-    final models = await apiService.getTopCoins();         // List<CoinModel>
-    return models.map((model) => model.toEntity()).toList(); // List<Coin>
+    final models = await apiService.getTopCoins();
+    return models.map((model) => model.toEntity()).toList();
   }
 }

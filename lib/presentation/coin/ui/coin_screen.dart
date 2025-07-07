@@ -10,7 +10,6 @@ class CoinListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Top 100 Coins')),
       body: BlocBuilder<CoinCubit, CoinState>(
         builder: (context, state) {
           if (state is CoinLoading) {

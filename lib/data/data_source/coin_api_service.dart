@@ -4,9 +4,9 @@ import '../models/coin_model.dart';
 
 part 'coin_api_service.g.dart';
 
-@RestApi(baseUrl: "https://api.coingecko.com/api/v3/")
+@RestApi()
 abstract class CoinApiService {
-  factory CoinApiService(Dio dio, {String baseUrl}) = _CoinApiService;
+  factory CoinApiService(Dio dio, {String? baseUrl}) = _CoinApiService;
 
   @GET("/coins/markets")
   Future<List<CoinModel>> getTopCoins({

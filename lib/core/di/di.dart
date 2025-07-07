@@ -1,3 +1,4 @@
+import 'package:clean_architechture_flutter/core/api_config.dart';
 import 'package:clean_architechture_flutter/data/data_source/coin_api_service.dart';
 import 'package:clean_architechture_flutter/data/repository/coin_repository_impl.dart';
 import 'package:clean_architechture_flutter/domain/repository/coin_repository.dart';
@@ -15,7 +16,10 @@ Future<void> init() async {
 
   // Retrofit
   sl.registerLazySingleton<CoinApiService>(
-        () => CoinApiService(sl()),
+        () => CoinApiService(
+      sl<Dio>(),
+      baseUrl: ApiConfig.getBaseUrl(isProd: true),
+    ),
   );
 
   // Repository
